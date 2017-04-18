@@ -1,7 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData, Column, Table, ForeignKey
 from sqlalchemy import Integer, String, VARCHAR
-from model import Users
 
 engine = create_engine('sqlite:///raspBy.db',
                        echo=True)
