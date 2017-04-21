@@ -1,9 +1,12 @@
 from dao import Base
-from flask import Flask, jsonify, request
+from flask import jsonify, request
 from dao import PositionDAO
 from model.Position import Position
+from model.Position import PositionSchema
 
 app = Base.app
+position_schema = PositionSchema()
+positions_schema = PositionSchema(many=True)
 
 @app.route('/')
 def alive():
@@ -11,11 +14,14 @@ def alive():
 
 @app.route('/positions')
 def getAllPositions():
-    return jsonify(str(PositionDAO.findAllPosition())),200
+    allPositions = PositionDAO.findAllPosition()
+    result = positions_schema.dump(allPositions)
+    return jsonify(result.data),200
 
 @app.route('/position/<int:posID>')
 def getPositionById(posID):
-    return jsonify(str(PositionDAO.findPositionById(posID))),200
+    position = PositionDAO.findPositionById(posID)
+    return position_schema.jsonify(position)
 
 @app.route('/position', methods=['POST'])
 def createPosition():

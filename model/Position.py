@@ -4,6 +4,7 @@ from dao import Base
 from datetime import datetime
 
 dbPosition = Base.db
+ma = Base.ma
 
 class Position(dbPosition.Model):
     __tablename__ = 'position'
@@ -22,5 +23,13 @@ class Position(dbPosition.Model):
     def createTable(self):
         dbPosition.create_all()
 
+class PositionSchema(ma.Schema):
+    class Meta:
+        fields = ('name','latitude','longitude','createdOn')
 
+        # Smart hyperlinking
+        #_links = ma.Hyperlinks({
+        #    'self': ma.URLFor('author_detail', id='<id>'),
+        #    'collection': ma.URLFor('authors')
+        #})
 

@@ -1,5 +1,7 @@
 import PositionDAO
 from model.Position import Position
+import json
 
+position = PositionDAO.findPositionById(3)
 
-print PositionDAO.updatePositionById(2, 'new name', '9879123', 'q2123123')
+print json.dumps(vars(position),sort_keys=True, indent=4)
