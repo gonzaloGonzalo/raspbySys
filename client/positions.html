@@ -1,0 +1,15 @@
+<!doctype html>
+<html ng-app="positions">
+	<head>
+		<title>Hello AngularJS</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    	<script src="positions.js"></script>
+	</head>
+
+	<body>
+		<div ng-controller="getPositions">
+			<p>Created on{{positions.createdOn}}</p>
+			<p>Latitude {{positions.latitude}}</p>
+		</div>
+	</body>
+</html>
