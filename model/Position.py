@@ -25,7 +25,7 @@ class Position(dbPosition.Model):
 
 class PositionSchema(ma.Schema):
     class Meta:
-        fields = ('name','latitude','longitude','createdOn')
+        fields = ('id','name','latitude','longitude','createdOn')
 
         # Smart hyperlinking
         #_links = ma.Hyperlinks({

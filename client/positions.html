@@ -8,8 +8,19 @@
 
 	<body>
 		<div ng-controller="getPositions">
-			<p>Created on{{positions.createdOn}}</p>
-			<p>Latitude {{positions.latitude}}</p>
+            <p>Name: {{position.name}}</p>
+			<p>Created on: {{position.createdOn}}</p>
+			<p>Latitude: {{position.latitude}}</p>
+            <p>Longitude: {{position.longitude}}</p>
+
+            <p>---------------------------------------------------------</p>
+
+            <div ng-repeat="p in positions">
+                <p>Name: {{p.name}}</p>
+			    <p>Created on: {{p.createdOn}}</p>
+			    <p>Latitude: {{p.latitude}}</p>
+                <p>Longitude: {{p.longitude}}</p>
+            </div>
 		</div>
 	</body>
 </html>
