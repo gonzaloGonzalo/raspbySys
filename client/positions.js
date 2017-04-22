@@ -8,4 +8,14 @@ angular.module('positions', [])
         then(function(response) {
             $scope.positions = response.data;
         }));
+
+$scope.update = function() {
+   url = 'http://192.168.0.194:5000/position/'+$scope.selectID.id;
+   $http.get(url).
+        then(function(response) {
+            $scope.position = response.data;
+        })
+}
+
 });
+

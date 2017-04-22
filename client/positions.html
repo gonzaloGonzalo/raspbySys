@@ -8,6 +8,11 @@
 
 	<body>
 		<div ng-controller="getPositions">
+            <select ng-model="selectID" ng-options="position.id for position in positions"
+                    ng-change="update()">
+            </select>
+
+            <p>ID: {{position.id}}</p>
             <p>Name: {{position.name}}</p>
 			<p>Created on: {{position.createdOn}}</p>
 			<p>Latitude: {{position.latitude}}</p>
@@ -16,6 +21,7 @@
             <p>---------------------------------------------------------</p>
 
             <div ng-repeat="p in positions">
+                <p>ID: {{p.id}}</p>
                 <p>Name: {{p.name}}</p>
 			    <p>Created on: {{p.createdOn}}</p>
 			    <p>Latitude: {{p.latitude}}</p>
